@@ -4,12 +4,17 @@ import { CommandMode } from "@/components/command-mode";
 import { NormalMode } from "@/components/normal-mode";
 import { usePortfolioState } from "@/hooks/use-portfolio-state";
 import { useMatrixEffect } from "@/hooks/use-matrix-effect";
+import { createContext } from "react";
+import { PortfolioProps } from "@/types/portfolio";
+import { Footer } from "@/components/footer";
+
+export const RootContext = createContext<PortfolioProps | null>(null);
 
 export default function App() {
   let isBooted = true;
 
   if (typeof window !== "undefined") {
-    isBooted = localStorage.getItem("booted") === "true";
+    isBooted = localStorage.getItem("isBooted") === "true";
   }
 
   const {
@@ -57,9 +62,10 @@ export default function App() {
     );
   }
 
-  return mode === "command" ? (
-    <CommandMode {...commonProps} />
-  ) : (
-    <NormalMode {...commonProps} />
+  return (
+    <RootContext.Provider value={commonProps}>
+      {mode === "command" ? <CommandMode /> : <NormalMode />}
+      <Footer />
+    </RootContext.Provider>
   );
 }

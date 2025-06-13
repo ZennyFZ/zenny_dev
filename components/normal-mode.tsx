@@ -5,10 +5,11 @@ import { Navigation } from "@/components/navigation";
 import { ContentArea } from "@/components/content-area";
 import { MobileTerminal } from "@/components/mobile-terminal";
 import { MobileMenu } from "@/components/mobile-menu";
-import type { PortfolioProps } from "@/types/portfolio";
+import { useContext } from "react";
+import { RootContext } from "@/app/page";
 
-export function NormalMode(props: PortfolioProps) {
-  const { canvasRef } = props;
+export function NormalMode() {
+  const { canvasRef } = useContext(RootContext)!;
 
   return (
     <div className="min-h-screen bg-black text-green-400 font-mono relative overflow-hidden">
@@ -19,11 +20,11 @@ export function NormalMode(props: PortfolioProps) {
       />
 
       <div className="relative z-10">
-        <Header {...props} />
-        <Navigation {...props} />
-        <ContentArea {...props} />
-        <MobileTerminal {...props} />
-        <MobileMenu {...props} />
+        <Header />
+        <Navigation />
+        <ContentArea />
+        <MobileTerminal />
+        <MobileMenu />
       </div>
     </div>
   );

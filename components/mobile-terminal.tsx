@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
 import { useCommandHandler } from "@/hooks/use-command-handler";
-import type { PortfolioProps } from "@/types/portfolio";
+import { RootContext } from "@/app/page";
 
-export function MobileTerminal(props: PortfolioProps) {
+export function MobileTerminal() {
   const {
     showMobileTerminal,
     setShowMobileTerminal,
@@ -18,7 +18,7 @@ export function MobileTerminal(props: PortfolioProps) {
     setCurrentView,
     mode,
     setMode,
-  } = props;
+  } = useContext(RootContext)!;
 
   const terminalRef = useRef<HTMLDivElement>(null);
   const { handleCommand } = useCommandHandler({
@@ -86,11 +86,11 @@ export function MobileTerminal(props: PortfolioProps) {
           <div className="grid grid-cols-3 gap-2 mt-4">
             {[
               "help",
-              "about",
+              "profile",
               "skills",
               "projects",
               "certifications",
-              "contact",
+              "clear",
             ].map((cmd) => (
               <Button
                 key={cmd}

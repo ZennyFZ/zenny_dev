@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { useCommandHandler } from "@/hooks/use-command-handler";
-import type { PortfolioProps } from "@/types/portfolio";
+import { RootContext } from "@/app/page";
 
-export function Terminal(props: PortfolioProps) {
+export function Terminal() {
   const {
     terminalHistory,
     currentCommand,
@@ -16,7 +16,7 @@ export function Terminal(props: PortfolioProps) {
     setTerminalHistory,
     setCurrentView,
     setShowMobileTerminal,
-  } = props;
+  } = useContext(RootContext)!;
 
   const terminalRef = useRef<HTMLDivElement>(null);
   const { handleCommand } = useCommandHandler({
@@ -33,6 +33,8 @@ export function Terminal(props: PortfolioProps) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [terminalHistory]);
+
+  console.log("Terminal rendered with mode:", mode);
 
   return (
     <div className="w-1/3 border-r-2 border-cyan-400 bg-black/90 flex flex-col">

@@ -1,14 +1,19 @@
 "use client";
 
+import { RootContext } from "@/app/page";
 import { CERTIFICATIONS } from "@/data/certifications";
 import { PROJECTS } from "@/data/projects";
 import { SKILLS } from "@/data/skills";
-import type { PortfolioProps } from "@/types/portfolio";
+import { useContext } from "react";
+import { Timeline } from "../timeline";
+import { WORK_EXPERIENCE } from "@/data/experience";
 
-export function MainOverview({ setCurrentView }: PortfolioProps) {
+export function MainOverview() {
+  const { setCurrentView } = useContext(RootContext)!;
+
   return (
     <div className="space-y-6 md:space-y-8">
-      <div className="text-center space-y-4">
+      <div className="space-y-4">
         <div className="text-xl md:text-2xl text-cyan-400 mb-6">
           ◉ OVERVIEW ◉
         </div>
@@ -52,6 +57,13 @@ export function MainOverview({ setCurrentView }: PortfolioProps) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="space-y-6">
+        <div className="text-xl md:text-2xl text-pink-400 mb-4">
+          ◉ CAREER_TIMELINE ◉
+        </div>
+        <Timeline experiences={WORK_EXPERIENCE} />
       </div>
     </div>
   );

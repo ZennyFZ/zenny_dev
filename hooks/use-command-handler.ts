@@ -18,9 +18,7 @@ export function useCommandHandler({
   setTerminalHistory,
   setCurrentCommand,
   setCurrentView,
-  setMode,
   setShowMobileTerminal,
-  mode,
 }: UseCommandHandlerProps) {
   const handleCommand = useCallback(
     (cmd: string) => {
@@ -41,18 +39,23 @@ export function useCommandHandler({
         switch (command) {
           case "overview":
             setCurrentView("main");
+            setShowMobileTerminal(false);
             break;
           case "profile":
             setCurrentView("about");
+            setShowMobileTerminal(false);
             break;
           case "skills":
             setCurrentView("skills");
+            setShowMobileTerminal(false);
             break;
           case "projects":
             setCurrentView("projects");
+            setShowMobileTerminal(false);
             break;
           case "certifications":
             setCurrentView("certifications");
+            setShowMobileTerminal(false);
             break;
           case "cv_resume":
             window.open("/NhanDinhDo_CV.pdf", "_blank");
@@ -68,15 +71,12 @@ export function useCommandHandler({
       }
 
       setCurrentCommand("");
-      setShowMobileTerminal(false);
     },
     [
       setTerminalHistory,
       setCurrentCommand,
       setCurrentView,
-      setMode,
       setShowMobileTerminal,
-      mode,
     ]
   );
 

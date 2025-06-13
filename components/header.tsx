@@ -3,14 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Menu, Terminal, Smartphone } from "lucide-react";
-import type { PortfolioProps } from "@/types/portfolio";
+import { useContext } from "react";
+import { RootContext } from "@/app/page";
 
-export function Header({
-  mode,
-  setMode,
-  setShowMobileTerminal,
-  setMobileMenuOpen,
-}: PortfolioProps) {
+export function Header() {
+  const { mode, setMode, setShowMobileTerminal, setMobileMenuOpen } =
+    useContext(RootContext)!;
+
   return (
     <div
       className={`border-b-2 border-cyan-400 bg-black/90 p-4
@@ -18,7 +17,9 @@ export function Header({
     >
       <div className="flex justify-between items-center">
         <div className="flex-1">
-          <div className="md:text-4xl text-cyan-400">{">"}zenny_dev</div>
+          <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 inline-block">
+            {">"}zenny_dev
+          </div>
           <div className="text-xs md:text-lg text-green-400 mt-1">
             fullstack_developer
           </div>

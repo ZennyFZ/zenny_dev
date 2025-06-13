@@ -1,10 +1,13 @@
 "use client";
 
+import { RootContext } from "@/app/page";
 import { Button } from "@/components/ui/button";
 import { NAVIGATION_ITEMS } from "@/constants/navigation";
-import type { PortfolioProps } from "@/types/portfolio";
+import { useContext } from "react";
 
-export function Navigation({ currentView, setCurrentView }: PortfolioProps) {
+export function Navigation() {
+  const { currentView, setCurrentView } = useContext(RootContext)!;
+
   return (
     <div className="hidden md:block bg-gray-900/90 border-b border-cyan-400 p-4">
       <div className="flex flex-wrap justify-center gap-2">

@@ -22,19 +22,26 @@ export function BootScreen({
   const terminalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let index = 0;
-    const bootTimer = setInterval(() => {
-      if (index < BOOT_SEQUENCE.length) {
-        setTerminalHistory((prev) => [...prev, `> ${BOOT_SEQUENCE[index]}`]);
-        index++;
-      } else {
-        setIsBooting(false);
-        localStorage.setItem("booted", "true");
-        setCurrentView("main");
-        clearInterval(bootTimer);
-      }
-    }, 1000);
-    return () => clearInterval(bootTimer);
+    const bootItems = [...BOOT_SEQUENCE];
+    const timeoutIds: NodeJS.Timeout[] = [];
+
+    bootItems.forEach((item, index) => {
+      const timeoutId = setTimeout(() => {
+        setTerminalHistory((prev) => [...prev, `> ${item}`]);
+
+        if (index === bootItems.length - 1) {
+          setTimeout(() => {
+            setIsBooting(false);
+            localStorage.setItem("isBooted", "true");
+            setCurrentView("main");
+          }, 1000);
+        }
+      }, 1000 * (index + 1));
+
+      timeoutIds.push(timeoutId);
+    });
+
+    return () => timeoutIds.forEach((id) => clearTimeout(id));
   }, [setTerminalHistory, setIsBooting, setCurrentView]);
 
   return (

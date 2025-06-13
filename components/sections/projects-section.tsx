@@ -15,7 +15,7 @@ export function ProjectsSection() {
         {PROJECTS.map((project, index) => (
           <Link
             key={index}
-            href={project.link || "#"}
+            href={typeof project.link === "string" ? project.link : "#"}
             target="_blank"
             className="block"
           >
@@ -23,8 +23,8 @@ export function ProjectsSection() {
               key={index}
               className="cursor-pointer bg-gray-900/50 border-2 border-yellow-400 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/30"
             >
-              <div className="p-4 md:p-6">
-                <div className="flex justify-between items-start mb-4">
+              <div className="flex flex-col gap-2 p-4 md:p-6">
+                <div className="flex justify-between items-start">
                   <div className="flex-1">
                     <div className="text-lg md:text-2xl text-white font-bold leading-tight">
                       {project.name}
@@ -35,9 +35,33 @@ export function ProjectsSection() {
                     </div>
                   </div>
                 </div>
-                <div className="text-gray-300 mb-4 text-sm md:text-base">
+                <div className="text-gray-500 text-sm md:text-base">
+                  {project.position.join(" / ")}
+                </div>
+                <div className="text-gray-300 text-sm md:text-base">
                   {project.description}
                 </div>
+
+                <div>
+                  {typeof project.link !== "string" ? (
+                    <div>
+                      {project.link?.map((link, index) => (
+                        <div key={index}>
+                          <Link
+                            href={link}
+                            target="_blank"
+                            className="text-cyan-400 hover:underline"
+                          >
+                            {link}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <Badge

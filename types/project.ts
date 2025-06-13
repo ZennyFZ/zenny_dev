@@ -5,6 +5,6 @@ export interface Project {
   position: string[];
   tech: string[];
   description: string;
-  link?: string;
+  link?: string | string[];
   teamsize?: number;
 }
