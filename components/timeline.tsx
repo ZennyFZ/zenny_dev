@@ -17,10 +17,8 @@ export function Timeline({ experiences }: TimelineProps) {
             index % 2 === 0 ? "md:flex-row-reverse" : ""
           }`}
         >
-          {/* Timeline node */}
           <div className="absolute left-4 md:left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50 z-10"></div>
 
-          {/* Content */}
           <div
             className={`ml-12 md:ml-0 md:w-1/2 ${
               index % 2 === 0 ? "md:pr-8" : "md:pl-8"
@@ -45,20 +43,22 @@ export function Timeline({ experiences }: TimelineProps) {
                 {exp.description}
               </div>
 
-              <div className="mt-3">
-                <div className="text-xs text-gray-400 mb-1">TECH_STACK:</div>
-                <div className="flex flex-wrap gap-1">
-                  {exp.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className="text-xs border-yellow-400 text-yellow-400"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
+              {exp.technologies && exp.technologies.length > 0 && (
+                <div className="mt-3">
+                  <div className="text-xs text-gray-400 mb-1">TECH_STACK:</div>
+                  <div className="flex flex-wrap gap-1">
+                    {exp.technologies?.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="text-xs border-yellow-400 text-yellow-400"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

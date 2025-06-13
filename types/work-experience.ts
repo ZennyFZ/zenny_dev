@@ -3,5 +3,5 @@ export interface WorkExperience {
   position: string;
   period: string;
   description: string;
-  technologies: string[];
+  technologies?: string[];
 }
