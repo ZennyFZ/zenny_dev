@@ -6,7 +6,7 @@ import { ContentArea } from "@/components/content-area";
 import { MobileTerminal } from "@/components/mobile-terminal";
 import { MobileMenu } from "@/components/mobile-menu";
 import { useContext } from "react";
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 
 export function NormalMode() {
   const { canvasRef } = useContext(RootContext)!;

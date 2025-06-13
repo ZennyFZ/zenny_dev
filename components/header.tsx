@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Menu, Terminal, Smartphone } from "lucide-react";
 import { useContext } from "react";
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 
 export function Header() {
   const { mode, setMode, setShowMobileTerminal, setMobileMenuOpen } =

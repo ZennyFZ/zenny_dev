@@ -4,7 +4,7 @@ import { useContext, useEffect, useRef } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { useCommandHandler } from "@/hooks/use-command-handler";
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 
 export function Terminal() {
   const {

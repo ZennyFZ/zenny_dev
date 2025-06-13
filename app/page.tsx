@@ -4,11 +4,8 @@ import { CommandMode } from "@/components/command-mode";
 import { NormalMode } from "@/components/normal-mode";
 import { usePortfolioState } from "@/hooks/use-portfolio-state";
 import { useMatrixEffect } from "@/hooks/use-matrix-effect";
-import { createContext } from "react";
-import { PortfolioProps } from "@/types/portfolio";
 import { Footer } from "@/components/footer";
-
-export const RootContext = createContext<PortfolioProps | null>(null);
+import { RootContext } from "./_hooks/RootProvider";
 
 export default function App() {
   let isBooted = true;

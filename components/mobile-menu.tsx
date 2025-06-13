@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { NAVIGATION_ITEMS } from "@/constants/navigation";
 import { useContext } from "react";
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 
 export function MobileMenu() {
   const { currentView, setCurrentView, mobileMenuOpen, setMobileMenuOpen } =

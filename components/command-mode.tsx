@@ -4,7 +4,7 @@ import { Terminal } from "@/components/terminal";
 import { ContentArea } from "@/components/content-area";
 import { MobileTerminal } from "@/components/mobile-terminal";
 import { useContext } from "react";
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 
 export function CommandMode() {
   const props = useContext(RootContext)!;

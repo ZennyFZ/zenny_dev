@@ -1,6 +1,6 @@
 "use client";
 
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 import { Button } from "@/components/ui/button";
 import { NAVIGATION_ITEMS } from "@/constants/navigation";
 import { useContext } from "react";

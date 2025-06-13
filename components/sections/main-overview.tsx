@@ -1,6 +1,6 @@
 "use client";
 
-import { RootContext } from "@/app/page";
+import { RootContext } from "@/app/_hooks/RootProvider";
 import { CERTIFICATIONS } from "@/data/certifications";
 import { PROJECTS } from "@/data/projects";
 import { SKILLS } from "@/data/skills";
