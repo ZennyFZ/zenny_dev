@@ -7,6 +7,23 @@ import { useContext } from "react";
 
 export function Navigation() {
   const { currentView, setCurrentView } = useContext(RootContext)!;
+  const bgColorVariants = {
+    cyan: "bg-cyan-500",
+    green: "bg-green-500",
+    purple: "bg-purple-500",
+    yellow: "bg-yellow-500",
+    pink: "bg-pink-500",
+    orange: "bg-orange-500",
+  };
+
+  const textColorVariants = {
+    cyan: "text-cyan-400",
+    green: "text-green-400",
+    purple: "text-purple-400",
+    yellow: "text-yellow-400",
+    pink: "text-pink-400",
+    orange: "text-orange-400",
+  };
 
   return (
     <div className="hidden md:block bg-gray-900/90 border-b border-cyan-400 p-4">
@@ -24,8 +41,20 @@ export function Navigation() {
             className={`text-sm md:text-base font-mono font-semibold px-4 py-2 rounded-lg transition-colors
               ${
                 currentView === item.key
-                  ? `bg-${item.color}-500 text-white`
-                  : `bg-gray-800 text-${item.color}-400 hover:bg-${item.color}-600`
+                  ? `${
+                      bgColorVariants[
+                        item.color as keyof typeof bgColorVariants
+                      ]
+                    } text-white hover:${
+                      bgColorVariants[
+                        item.color as keyof typeof bgColorVariants
+                      ]
+                    }`
+                  : `bg-gray-800 ${
+                      textColorVariants[
+                        item.color as keyof typeof textColorVariants
+                      ]
+                    }`
               }
             `}
           >
