@@ -41,11 +41,11 @@ export function AboutSection() {
             Introduction
           </div>
           <div className="text-gray-300 leading-relaxed text-sm md:text-base">
-            Software Engineer with a strong focus on front-end and mobile
-            development, specializing in ReactJS, NextJS, React Native, and
-            TypeScript. Experienced in full-stack development and blockchain
-            integration, with hands-on project experience using modern
-            frameworks and tools.
+            Front-end & Mobile Developer with hands-on experience building web
+            and mobile applications using ReactJS, NextJS, React Native, and
+            TypeScript. Oriented toward becoming a flexible Fullstack Developer,
+            with strong self-learning ability, independence, and familiarity
+            with Git, API integration, and Agile environments.
           </div>
         </div>
       </div>

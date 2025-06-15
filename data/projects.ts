@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
       "MongoDB",
     ],
     description:
-      "Hientai Truyen is a web application that allows users to read manga online. It features a user-friendly interface and a vast library of manga.",
+      "Designed and developed Hientai Truyen, a full-stack web application for online manga reading, featuring a clean, user-friendly interface and an extensive manga library. In addition, built an internal admin dashboard for efficient manga and chapter management. Tech stack includes Next.js, TypeScript, Tailwind CSS, Elysia.js, and MongoDB, deployed via Vercel and Render.",
     link: "https://hien-tai-truyen-eta.vercel.app/",
   },
   {
@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
       "Metamask Integration",
     ],
     description:
-      "CiStudy is an interact-to-earn learning system using blockchain that users can buy courses, create a course or interact with other users in the forum of that course, making learning more interactive and less isolating by rewarding active participation through interacting on the forum.",
+      "Developed frontend and mobile interfaces for CiStudy — an interact-to-earn blockchain-based learning platform where users can buy or create courses, and earn rewards through active participation in course forums. Developed with a modern tech stack including Next.js, React Native, NestJS, GraphQL, MySQL, and Metamask integration, with deployment using Vercel, AWS, Docker, and Nginx.",
     link: "https://github.com/DaCoinTeam/cistudy-client-2",
   },
   {
@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
       "OpenAI",
     ],
     description:
-      "ELibrary is a website where users can purchase eBooks using various payment options. Users can also read eBooks online and access helpful features such as translation and summarization to enhance their understanding of the content.",
+      "Contributed as a Backend and Mobile Developer to ELibrary — an eBook platform with online reading, payment integration, and AI-enhanced tools like translation and summarization. Built with ReactJS, React Native, ExpressJS, MongoDB, and OpenAI.",
     link: "https://e-library-frontend-delta.vercel.app/",
   },
 ];
